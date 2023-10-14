@@ -1,0 +1,17 @@
+#Fibonacci Linear Function
+import math
+
+def fibonacci_linear(n):
+    phi = (1 + math.sqrt(5)) / 2
+    return round((phi**n - (1-phi)**n) / math.sqrt(5))
+
+try:
+    n = int(input("Digite um número maior ou igual a 0: "))
+    if n >= 0:
+        for x in range(n + 1):
+            linear_result = fibonacci_linear(x)
+            print(f"Fibonacci ({x}) = {linear_result}")
+    else:
+        print("Por favor, digite um número maior ou igual a 0.")
+except ValueError:
+    print("Entrada inválida. Digite um número inteiro maior ou igual a 0.")
