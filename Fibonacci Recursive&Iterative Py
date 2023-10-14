@@ -1,0 +1,39 @@
+#Recursive Fibonacci function
+def fibonacci(f):
+    if f == 0:
+        return 0
+    elif f == 1:
+        return 1
+    else:
+        return fibonacci(f-2) + fibonacci(f-1)
+
+try:
+    n = int(input("Digite um número maior ou igual a 0: "))
+    if n >= 0:
+        for x in range(n + 1):
+            print(f"Fibonacci({x}) = {fibonacci(x)}")
+    else:
+        print("Por favor, digite um número maior ou igual a 0.")
+except ValueError:
+    print("Entrada inválida. Digite um número inteiro maior ou igual a 0.")
+
+
+#Iterative Fibonacci function
+def fibonacci_iterativo(n):
+    fibonacci = [0, 1]
+    if n <= 1:
+        return fibonacci[n]
+    for i in range(2, n + 1):
+        next_fibonacci = fibonacci[i - 1] + fibonacci[i - 2]
+        fibonacci.append(next_fibonacci)
+    return fibonacci[n]
+
+try:
+    n = int(input("Digite um número para calcular o termo correspondente na sequência de Fibonacci: "))
+    if n >= 0:
+        resultado = fibonacci_iterativo(n)
+        print(f"O termo escolhido da sequência de Fibonacci é {resultado}.")
+    else:
+        print("Por favor, digite um número maior ou igual a 0.")
+except ValueError:
+    print("Entrada inválida. Digite um número inteiro maior ou igual a 0.")
